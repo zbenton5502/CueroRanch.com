@@ -1,0 +1,9 @@
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom tweaks beyond Tailwind */
+body {
+    font-family: 'Montserrat', sans-serif;
+}
