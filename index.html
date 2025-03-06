@@ -12,39 +12,65 @@
 </head>
 <body class="bg-gray-900 text-white font-sans">
     <!-- Hero Section with Placeholder Video -->
-    <section class="h-screen flex items-center justify-center">
-        <div class="text-center">
-            <h1 class="text-5xl font-bold mb-4">Cuero Ranch</h1>
-            <p class="text-xl mb-6">52+ Acres | 3BR/2BA | North of Cuero, TX</p>
-            <div class="w-full max-w-4xl mx-auto bg-gray-700 h-96 flex items-center justify-center">
-                <p>[Drone Video Placeholder - Coming Soon]</p>
+    <section class="h-screen flex items-center justify-center relative overflow-hidden" x-data="{ isPlaying: false }">
+        <div class="text-center z-10">
+            <h1 class="text-5xl font-bold mb-4 animate-fade-in">Cuero Ranch</h1>
+            <p class="text-xl mb-6 animate-fade-in-delay">52+ Acres | 3BR/2BA | North of Cuero, TX</p>
+            <div class="w-full max-w-4xl mx-auto bg-gray-700 h-96 flex items-center justify-center cursor-pointer rounded-lg shadow-lg" @click="isPlaying = !isPlaying">
+                <template x-if="!isPlaying">
+                    <p class="text-white">[Click to Play Drone Video Placeholder]</p>
+                </template>
+                <template x-if="isPlaying">
+                    <p class="text-white">[Drone Video Playing - Coming Soon]</p>
+                </template>
             </div>
+            <a href="#details" class="mt-6 inline-block bg-gray-600 text-white px-6 py-3 rounded hover:bg-gray-500 transition-colors">Learn More</a>
         </div>
+        <div class="absolute inset-0 bg-gradient-to-b from-gray-900 to-transparent opacity-50"></div>
     </section>
 
-    <!-- Photo Gallery Placeholder -->
-    <section class="py-16">
-        <h2 class="text-3xl text-center mb-8">Explore the Property</h2>
-        <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div class="bg-gray-700 h-64 flex items-center justify-center">Photo 1 Placeholder</div>
-            <div class="bg-gray-700 h-64 flex items-center justify-center">Photo 2 Placeholder</div>
-            <div class="bg-gray-700 h-64 flex items-center justify-center">Photo 3 Placeholder</div>
+    <!-- Photo Gallery -->
+<section class="py-16" id="gallery">
+    <h2 class="text-3xl text-center mb-8 animate-fade-in">Explore the Property</h2>
+    <div class="max-w-5xl mx-auto" x-data="{ showGallery: false }">
+        <button @click="showGallery = !showGallery" class="bg-gray-700 text-white px-4 py-2 rounded mb-4 hover:bg-gray-600 transition-colors">Toggle Gallery</button>
+        <div x-show="showGallery" class="grid grid-cols-1 md:grid-cols-3 gap-4 transition-opacity duration-300">
+            <img src="images/house.jpg" alt="Cuero Ranch House" class="object-cover w-full h-64 rounded-lg shadow-md hover:shadow-lg transition-shadow" loading="lazy">
+            <img src="images/metal_shop.jpg" alt="Cuero Ranch Metal Shop" class="object-cover w-full h-64 rounded-lg shadow-md hover:shadow-lg transition-shadow" loading="lazy">
+            <img src="images/south_view.jpg" alt="Cuero Ranch South View" class="object-cover w-full h-64 rounded-lg shadow-md hover:shadow-lg transition-shadow" loading="lazy">
+            <img src="images/stock_tank.jpg" alt="Cuero Ranch Stock Tank" class="object-cover w-full h-64 rounded-lg shadow-md hover:shadow-lg transition-shadow" loading="lazy">
+            <img src="images/east_view.jpg" alt="Cuero Ranch East View" class="object-cover w-full h-64 rounded-lg shadow-md hover:shadow-lg transition-shadow" loading="lazy">
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Details Section -->
-    <section class="py-16 bg-gray-800">
+    <section class="py-16 bg-gray-800" id="details">
         <div class="max-w-3xl mx-auto text-center">
-            <h2 class="text-3xl mb-4">A Texas Gem</h2>
-            <p class="text-lg">[Add your description here later]</p>
+            <h2 class="text-3xl mb-4 animate-fade-in">A Texas Gem</h2>
+            <p class="text-lg">
+                Discover Cuero Ranch, a stunning 52+ acre property 8 miles north of Cuero, TX, overlooking the Cuero Creek Valley. This custom-built 3BR/2BA home spans 2,441 sq ft, featuring limestone on all four sides, a standing seam metal roof, and inviting front porch, back porch, and cabana. The property includes a large metal shop with two roll-up doors (220V and 110V power), a spacious hay barn, and mature oak and pecan trees. The 52 acres are divided into thirds with cross-fencing for cattle, each section featuring accessible well water and a well-fed stock tank, all atop a scenic ridgeline.
+            </p>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="py-16">
-        <div class="max-w-md mx-auto text-center">
-            <h2 class="text-3xl mb-4">Get in Touch</h2>
-            <p class="mb-6">[CueroRanch@gmail.com]</p>
+   <!-- Contact Section -->
+<section class="py-16" id="contact">
+    <div class="max-w-md mx-auto text-center">
+        <h2 class="text-3xl mb-4 animate-fade-in">Get in Touch</h2>
+        <p>
+            <a href="mailto:CueroRanch@gmail.com" class="text-white hover:text-gray-300 transition-colors">
+                CueroRanch@gmail.com
+            </a>
+        </p>
+    </div>
+</section>
+
+    <!-- Location Section -->
+    <section class="py-16 bg-gray-800">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl mb-4 animate-fade-in">Location</h2>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2095.351813384467!2d-97.27697243412736!3d29.220273778398266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8642e2a8051d67d1%3A0xb1e9fe38403056da!2s3240%20Concrete-Edgar%20Rd%2C%20Cuero%2C%20TX%2077954!5e1!3m2!1sen!2sus!4v1741225893886!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </section>
 
