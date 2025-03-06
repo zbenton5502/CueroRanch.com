@@ -10,83 +10,27 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
-<!-- Navigation -->
-<nav class="fixed top-0 left-0 w-full bg-gray-800 p-4 z-20">
-    <ul class="flex justify-center space-x-6">
-        <li><a href="#gallery" class="text-white hover:text-gray-300 transition-colors">Gallery</a></li>
-        <li><a href="#details" class="text-white hover:text-gray-300 transition-colors">Details</a></li>
-        <li><a href="#contact" class="text-white hover:text-gray-300 transition-colors">Contact</a></li>
-        <li><a href="#location" class="text-white hover:text-gray-300 transition-colors">Location</a></li>
-    </ul>
-</nav>
-<body class="bg-gray-900 text-white font-sans">
-    <!-- Hero Section with Full-Screen Video Background -->
-<section class="relative h-screen overflow-hidden" id="hero">
-    <div class="absolute inset-0 w-full h-full">
-        <iframe src="https://www.youtube.com/embed/qTdzTZM2tH8?autoplay=1&mute=1&loop=1&playlist=qTdzTZM2tH8&controls=0" width="100%" height="100%" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen class="object-cover" aria-label="Cuero Ranch Drone Video Background"></iframe>
-    </div>
-    <div class="relative z-10 flex items-center justify-center h-full text-center bg-black bg-opacity-50">
-        <div>
-            <h1 class="text-5xl font-bold mb-4 animate-fade-in">Cuero Ranch</h1>
-            <p class="text-xl mb-6 animate-fade-in-delay">52+ Acres | 3BR/2BA | North of Cuero, TX</p>
-            <a href="#details" class="inline-block bg-gray-600 text-white px-6 py-3 rounded hover:bg-gray-500 transition-colors">Learn More</a>
-        </div>
-    </div>
-</section>
+<body class="bg-F5F1E9 text-warm-brown font-sans">
+    <!-- Include Navigation -->
+    <div id="nav"></div>
 
-   <!-- Photo Gallery -->
-<section class="py-16" id="gallery">
-    <h2 class="text-3xl text-center mb-8 animate-fade-in">Explore the Property</h2>
-    <div class="max-w-5xl mx-auto" x-data="{ showGallery: false, selectedImage: null, selectedAlt: '' }">
-        <button @click="showGallery = !showGallery" class="bg-gray-700 text-white px-4 py-2 rounded mb-4 hover:bg-gray-600 transition-colors" aria-label="Toggle property photo gallery">See Photos of Property</button>
-        <div x-show="showGallery" class="grid grid-cols-1 md:grid-cols-3 gap-4 transition-opacity duration-300">
-            <img src="images/house.jpg" alt="Cuero Ranch House" class="object-cover w-full h-64 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer" @click="selectedImage = 'images/house.jpg'; selectedAlt = 'Cuero Ranch House'" loading="lazy">
-            <img src="images/metal_shop.jpg" alt="Cuero Ranch Metal Shop" class="object-cover w-full h-64 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer" @click="selectedImage = 'images/metal_shop.jpg'; selectedAlt = 'Cuero Ranch Metal Shop'" loading="lazy">
-            <img src="images/south_view.jpg" alt="Cuero Ranch South View" class="object-cover w-full h-64 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer" @click="selectedImage = 'images/south_view.jpg'; selectedAlt = 'Cuero Ranch South View'" loading="lazy">
-            <img src="images/stock_tank.jpg" alt="Cuero Ranch Stock Tank" class="object-cover w-full h-64 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer" @click="selectedImage = 'images/stock_tank.jpg'; selectedAlt = 'Cuero Ranch Stock Tank'" loading="lazy">
-            <img src="images/east_view.jpg" alt="Cuero Ranch East View" class="object-cover w-full h-64 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer" @click="selectedImage = 'images/east_view.jpg'; selectedAlt = 'Cuero Ranch East View'" loading="lazy">
-        </div>
+    <!-- Include Hero Section -->
+    <div id="hero"></div>
 
-        <!-- Image Overlay Modal -->
-        <div x-show="selectedImage" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50" @click.away="selectedImage = null; selectedAlt = ''" x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="ease-in duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
-            <div class="relative max-w-3xl w-full" @click.stop>
-                <img :src="selectedImage" alt="Enlarged Image" class="max-w-full max-h-[80vh] object-contain rounded-lg shadow-xl">
-                <p x-show="selectedAlt" class="text-white text-center mt-2 italic" x-text="selectedAlt"></p>
-                <button @click="selectedImage = null; selectedAlt = ''" class="absolute top-4 right-4 text-white text-2xl bg-gray-800 p-2 rounded-full hover:bg-gray-600 transition-colors" aria-label="Close enlarged image">×</button>
-            </div>
-        </div>
-    </div>
-</section>
+    <!-- Include Text Description Below Hero -->
+    <div id="description"></div>
 
-    <!-- Details Section -->
-    <section class="py-16 bg-gray-800" id="details">
-        <div class="max-w-3xl mx-auto text-center">
-            <h2 class="text-3xl mb-4 animate-fade-in">A Texas Gem</h2>
-            <p class="text-lg">
-                Discover Cuero Ranch, a stunning 52+ acre property 8 miles north of Cuero, TX, overlooking the Cuero Creek Valley. This custom-built 3BR/2BA home spans 2,441 sq ft, featuring limestone on all four sides, a standing seam metal roof, and inviting front porch, back porch, and cabana. The property includes a large metal shop with two roll-up doors (220V and 110V power), a spacious hay barn, and mature oak and pecan trees. The 52 acres are divided into thirds with cross-fencing for cattle, each section featuring accessible well water and a well-fed stock tank, all atop a scenic ridgeline.
-            </p>
-        </div>
-    </section>
+    <!-- Include Photo Gallery -->
+    <div id="gallery"></div>
 
-  <!-- Contact Section -->
-<section class="py-16" id="contact">
-    <div class="max-w-md mx-auto text-center">
-        <h2 class="text-3xl mb-4 animate-fade-in">Get in Touch</h2>
-        <p>
-            <a href="mailto:CueroRanch@gmail.com" class="email-link text-white hover:text-gray-300 transition-colors">
-                CueroRanch@gmail.com
-            </a>
-        </p>
-    </div>
-</section>
+    <!-- Include Details Section -->
+    <div id="details"></div>
 
-    <!-- Location Section -->
-    <section class="py-16 bg-gray-800">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-3xl mb-4 animate-fade-in">Location</h2>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2095.351813384467!2d-97.27697243412736!3d29.220273778398266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8642e2a8051d67d1%3A0xb1e9fe38403056da!2s3240%20Concrete-Edgar%20Rd%2C%20Cuero%2C%20TX%2077954!5e1!3m2!1sen!2sus!4v1741225893886!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-    </section>
+    <!-- Include Contact Section -->
+    <div id="contact"></div>
+
+    <!-- Include Location Section -->
+    <div id="location"></div>
 
     <script src="scripts.js"></script>
 </body>
