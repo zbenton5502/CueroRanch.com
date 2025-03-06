@@ -130,12 +130,11 @@ body {
     background-color: #000;
 }
 
-.bg-opacity-50 {
-    opacity: 0.5; /* Lightened overlay for video clarity */
-}
+/* Removed unused bg-opacity-50 since no overlay is needed with local video */
+/* bg-opacity-50 { opacity: 0.5; } */
 
 .bg-opacity-75 {
-    opacity: 0.99;
+    opacity: 0.75;
 }
 
 .bg-opacity-50 {
@@ -317,9 +316,7 @@ nav a:hover {
 }
 
 /* Hero section overlay and video background adjustments */
-.bg-black.bg-opacity-50 {
-    background-color: rgba(74, 44, 42, 0.5); /* Lightened overlay for video clarity */
-}
+/* Removed bg-black.bg-opacity-50 since no overlay is needed with local video */
 
 /* Button styling with rustic colors */
 button {
