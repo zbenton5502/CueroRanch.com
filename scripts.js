@@ -18,7 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Load each section with relative paths
     loadSection('nav', './nav.html');
-    loadSection('description', './description.html'); // New description file
     loadSection('hero', './hero.html');
     loadSection('gallery', './gallery.html');
     loadSection('details', './details.html');

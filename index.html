@@ -15,11 +15,22 @@
     <!-- Include Navigation -->
     <div id="nav"></div>
 
-    <!-- Include Hero Section -->
-    <div id="hero"></div>
-
-    <!-- Include Text Description Below Hero -->
-    <div id="description"></div>
+    <!-- Hardcoded Hero Section (includes description) -->
+    <div id="hero">
+        <section class="relative" style="min-height: 100vh; height: 100vh; overflow: hidden; margin: 0; padding: 0;">
+            <div class="video-container absolute top-0 left-0 w-full h-full">
+                <video autoplay loop muted playsinline class="absolute top-0 left-0 w-full h-full">
+                    <source src="trim.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="absolute bottom-0 left-0 w-full text-center bg-light-rustic border-b-4 border-terracotta" style="padding: 12px 0; z-index: 20; background-color: rgba(215, 196, 176, 0.9) !important;">
+                <div class="description-content">
+                    <p class="text-2xl font-bold text-warm-brown drop-shadow-md">52+ Acres | 3BR/2BA | North of Cuero, TX</p>
+                </div>
+            </div>
+        </section>
+    </div>
 
     <!-- Include Photo Gallery -->
     <div id="gallery"></div>
@@ -35,16 +46,32 @@
 
     <script src="scripts.js"></script>
     <script>
-        // Prevent pinch zoom but allow scrolling
+        // Allow pinch-to-zoom when gallery modal is open
+        const galleryModal = document.querySelector('#gallery');
+        let isModalOpen = false;
+
+        // Observe modal state using Alpine.js
+        document.addEventListener('alpine:init', () => {
+            Alpine.store('gallery', {
+                modalOpen: false,
+                toggleModal(state) {
+                    this.modalOpen = state;
+                    isModalOpen = state;
+                }
+            });
+        });
+
+        // Prevent pinch zoom only when modal is closed
         document.addEventListener('gesturestart', function (e) {
-            if (e.scale !== 1) e.preventDefault(); // Only prevent if it's a pinch/zoom gesture
+            if (!isModalOpen) e.preventDefault();
         });
         document.addEventListener('gesturechange', function (e) {
-            if (e.scale !== 1) e.preventDefault(); // Only prevent if it's a pinch/zoom gesture
+            if (!isModalOpen) e.preventDefault();
         });
         document.addEventListener('gestureend', function (e) {
-            if (e.scale !== 1) e.preventDefault(); // Only prevent if it's a pinch/zoom gesture
+            if (!isModalOpen) e.preventDefault();
         });
+
         window.addEventListener('resize', function () {
             document.body.style.zoom = "100%";
         });
