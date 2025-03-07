@@ -383,17 +383,18 @@ button:hover {
     border: 0; /* Ensure no border on iframe */
 }
 
-/* Hero video container */
+/* Hero video container with description overlay */
 #hero {
     position: relative;
     width: 100%;
-    min-height: 100vh; /* Ensure it takes at least full viewport height */
+    min-height: 100vh;
+    overflow: hidden; /* Prevent content overflow */
 }
 
 .video-container {
     position: relative;
     width: 100%;
-    padding-top: 56.25%; /* 16:9 aspect ratio (9/16 * 100) */
+    padding-top: 56.25%; /* 16:9 aspect ratio */
 }
 
 .video-container video {
@@ -402,52 +403,22 @@ button:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Ensures full video visibility */
+    object-fit: cover; /* Use cover to fill space, accepting cropping if needed */
 }
 
-/* Description padding */
-#description {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+#hero .bg-light-rustic {
+    background-color: rgba(215, 196, 176, 0.9); /* Semi-transparent for readability */
 }
 
-.description-content {
-    padding-left: 1rem;
-    padding-right: 1rem;
+#hero .description-content {
+    position: relative; /* Ensure text is above video */
+    z-index: 20; /* Above video */
+    padding: 12px 0; /* Lock padding */
 }
 
-@media (min-width: 640px) {
-    .description-content {
-        padding-left: 2rem;
-        padding-right: 2rem;
-    }
-}
-
-@media (min-width: 768px) {
-    .description-content {
-        padding-left: 2.5rem;
-        padding-right: 2.5rem;
-    }
-}
-
-/* Ensure mobile padding */
-@media (max-width: 639px) {
-    .description-content {
-        padding-left: 1.5rem !important;
-        padding-right: 1.5rem !important;
-    }
-}
-/* Add or update in styles.css */
-#description {
-    padding-top: 12px !important;
-    padding-bottom: 12px !important;
-}
-
-#gallery {
-    padding-top: 16px !important;
-    padding-bottom: 16px !important;
-}
-
-#gallery h2 {
-    margin-bottom: 8px !important;
+#hero .bg-light-rustic {
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
 }
