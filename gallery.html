@@ -1,13 +1,13 @@
-<section class="py-16" id="gallery">
-    <h2 class="text-3xl text-center mb-8 animate-fade-in">Explore the Property</h2>
+<section id="gallery" style="padding: 16px 0;">
+    <h2 class="text-3xl text-center animate-fade-in" style="margin-bottom: 8px;">Explore the Property</h2>
     <div class="max-w-5xl mx-auto" x-data="{ showGallery: false, selectedImage: null, selectedAlt: '' }">
         <button @click="showGallery = !showGallery" class="bg-rustic-brown text-F5F1E9 px-4 py-2 rounded mb-4 hover:bg-dark-brown transition-colors" aria-label="Toggle property photo gallery">See Photos of Property</button>
         <div x-show="showGallery" class="grid grid-cols-1 md:grid-cols-3 gap-4 transition-opacity duration-300">
-            <img src="/images/house.jpg" alt="Cuero Ranch House" class="object-cover w-full h-64 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer" @click="selectedImage = '/images/house.jpg'; selectedAlt = 'Cuero Ranch House'" loading="lazy" onerror="this.src='./images/house.jpg'">
-            <img src="/images/metal_shop.jpg" alt="Cuero Ranch Metal Shop" class="object-cover w-full h-64 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer" @click="selectedImage = '/images/metal_shop.jpg'; selectedAlt = 'Cuero Ranch Metal Shop'" loading="lazy" onerror="this.src='./images/metal_shop.jpg'">
-            <img src="/images/south_view.jpg" alt="Cuero Ranch South View" class="object-cover w-full h-64 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer" @click="selectedImage = '/images/south_view.jpg'; selectedAlt = 'Cuero Ranch South View'" loading="lazy" onerror="this.src='./images/south_view.jpg'">
-            <img src="/images/stock_tank.jpg" alt="Cuero Ranch Stock Tank" class="object-cover w-full h-64 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer" @click="selectedImage = '/images/stock_tank.jpg'; selectedAlt = 'Cuero Ranch Stock Tank'" loading="lazy" onerror="this.src='./images/stock_tank.jpg'">
-            <img src="/images/east_view.jpg" alt="Cuero Ranch East View" class="object-cover w-full h-64 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer" @click="selectedImage = '/images/east_view.jpg'; selectedAlt = 'Cuero Ranch East View'" loading="lazy" onerror="this.src='./images/east_view.jpg'">
+            <img src="/images/house.jpg" alt="Cuero Ranch House" class="object-cover w-full h-64 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer" @click="selectedImage = '/images/house.jpg'; selectedAlt = 'Cuero Ranch House'" loading="lazy">
+            <img src="/images/metal_shop.jpg" alt="Cuero Ranch Metal Shop" class="object-cover w-full h-64 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer" @click="selectedImage = '/images/metal_shop.jpg'; selectedAlt = 'Cuero Ranch Metal Shop'" loading="lazy">
+            <img src="/images/south_view.jpg" alt="Cuero Ranch South View" class="object-cover w-full h-64 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer" @click="selectedImage = '/images/south_view.jpg'; selectedAlt = 'Cuero Ranch South View'" loading="lazy">
+            <img src="/images/stock_tank.jpg" alt="Cuero Ranch Stock Tank" class="object-cover w-full h-64 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer" @click="selectedImage = '/images/stock_tank.jpg'; selectedAlt = 'Cuero Ranch Stock Tank'" loading="lazy">
+            <img src="/images/east_view.jpg" alt="Cuero Ranch East View" class="object-cover w-full h-64 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer" @click="selectedImage = '/images/east_view.jpg'; selectedAlt = 'Cuero Ranch East View'" loading="lazy">
         </div>
 
         <!-- Image Overlay Modal -->

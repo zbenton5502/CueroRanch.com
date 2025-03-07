@@ -13,7 +13,6 @@ body {
     color: #4A2C2A; /* Warm brown text color */
     margin: 0; /* Remove default margin to control spacing */
     padding-top: 80px; /* Match the nav height (approx. 4rem + padding) to avoid overlap */
-    touch-action: pinch-zoom; /* Allows pinch but resets scale */
     -webkit-text-size-adjust: 100%; /* Prevents iOS text scaling */
 }
 
@@ -437,4 +436,18 @@ button:hover {
         padding-left: 1.5rem !important;
         padding-right: 1.5rem !important;
     }
+}
+/* Add or update in styles.css */
+#description {
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+}
+
+#gallery {
+    padding-top: 16px !important;
+    padding-bottom: 16px !important;
+}
+
+#gallery h2 {
+    margin-bottom: 8px !important;
 }
