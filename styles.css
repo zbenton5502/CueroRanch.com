@@ -11,9 +11,8 @@ html {
 body {
     background-color: #F5F1E9; /* Ensure body inherits the background */
     color: #4A2C2A; /* Warm brown text color */
-    margin: 0; /* Remove default margin to control spacing */
-    padding-top: 80px; /* Match the nav height (approx. 4rem + padding) to avoid overlap */
-    -webkit-text-size-adjust: 100%; /* Prevents iOS text scaling */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
 }
 
 /* Fade-in animations */
@@ -131,8 +130,8 @@ body {
     background-color: #000;
 }
 
-.bg-opacity-75 {
-    opacity: 0.75;
+.bg-opacity-99 {
+    opacity: 0.99;
 }
 
 .bg-opacity-50 {
@@ -314,6 +313,11 @@ nav {
     border-bottom: 4px solid #A0522D; /* Terracotta border for rustic charm */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
     padding: 1.5rem; /* Increased padding for a bolder look */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
 }
 
 nav a {
@@ -387,14 +391,18 @@ button:hover {
 #hero {
     position: relative;
     width: 100%;
-    min-height: 100vh;
-    overflow: hidden; /* Prevent content overflow */
+    height: 100vh; /* Force exact height */
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
 }
 
 .video-container {
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    padding-top: 56.25%; /* 16:9 aspect ratio */
+    height: 100%;
 }
 
 .video-container video {
@@ -403,17 +411,7 @@ button:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Use cover to fill space, accepting cropping if needed */
-}
-
-#hero .bg-light-rustic {
-    background-color: rgba(215, 196, 176, 0.9); /* Semi-transparent for readability */
-}
-
-#hero .description-content {
-    position: relative; /* Ensure text is above video */
-    z-index: 20; /* Above video */
-    padding: 12px 0; /* Lock padding */
+    object-fit: cover; /* Fill space, accepting cropping */
 }
 
 #hero .bg-light-rustic {
@@ -421,4 +419,26 @@ button:hover {
     bottom: 0 !important;
     left: 0 !important;
     width: 100% !important;
+    z-index: 20 !important;
+    background-color: rgba(215, 196, 176, 0.9) !important;
+    padding: 12px 0 !important;
+}
+
+#hero .description-content {
+    position: relative;
+    z-index: 21; /* Slightly higher to ensure text is above background */
+}
+
+/* Remove old description styles */
+#description {
+    display: none !important; /* Hide if still present */
+}
+
+/* Gallery section */
+#gallery {
+    padding: 16px 0;
+}
+
+#gallery h2 {
+    margin-bottom: 8px;
 }
