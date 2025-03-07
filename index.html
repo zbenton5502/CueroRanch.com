@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes"> <!-- For iOS compatibility -->
     <title>Cuero Ranch - 52+ Acre Texas Retreat</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -33,5 +34,20 @@
     <div id="location"></div>
 
     <script src="scripts.js"></script>
+    <script>
+        // Prevent pinch zoom and reset scale
+        document.addEventListener('gesturestart', function (e) {
+            e.preventDefault();
+        });
+        document.addEventListener('gesturechange', function (e) {
+            e.preventDefault();
+        });
+        document.addEventListener('gestureend', function (e) {
+            e.preventDefault();
+        });
+        window.addEventListener('resize', function () {
+            document.body.style.zoom = "100%";
+        });
+    </script>
 </body>
 </html>
