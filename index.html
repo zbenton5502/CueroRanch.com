@@ -7,7 +7,7 @@
     <title>Cuero Ranch - 52+ Acre Texas Retreat</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Alpine.js CDN -->
+    <!-- Alpine.js CDN (deferred) -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -15,23 +15,8 @@
     <!-- Include Navigation -->
     <div id="nav"></div>
 
-    <!-- Hero Section with Vimeo -->
-    <section class="relative" id="hero" style="min-height: 100vh; height: 100vh; overflow: hidden; margin: 0; padding: 0;">
-        <div class="video-container absolute top-0 left-0 w-full h-full">
-            <iframe 
-                src="https://player.vimeo.com/video/1063739512?h=3090613a12&badge=0&autopause=0&autoplay=1&loop=1&muted=1&background=1&player_id=0&app_id=58479" 
-                frameborder="0" 
-                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
-                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" 
-                title="Cuero Ranch Background Video">
-            </iframe>
-        </div>
-        <div class="absolute bottom-0 left-0 w-full text-center bg-light-rustic border-b-4 border-terracotta" style="padding: 12px 0; z-index: 20; background-color: rgba(215, 196, 176, 0.9) !important;">
-            <div class="description-content">
-                <p class="text-2xl font-bold text-warm-brown drop-shadow-md">52+ Acres | 3BR/2BA | North of Cuero, TX</p>
-            </div>
-        </div>
-    </section>
+    <!-- Hero Section Placeholder -->
+    <div id="hero"></div>
 
     <!-- Include Photo Gallery -->
     <div id="gallery"></div>
@@ -45,6 +30,7 @@
     <!-- Include Location Section -->
     <div id="location"></div>
 
+    <!-- Scripts (loaded last) -->
     <script src="scripts.js"></script>
     <script src="https://player.vimeo.com/api/player.js"></script>
     <script>
