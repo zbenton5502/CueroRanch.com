@@ -1,13 +1,13 @@
 <section id="gallery" style="padding: 16px 0;">
-    <h2 class="text-3xl text-center animate-fade-in" style="margin-bottom: 8px;">Explore the Property</h2>
+    <h2 class="text-3xl text-center animate-fade-in" style="margin-bottom: 8px;">Explore Cuero Ranch</h2>
     <div class="max-w-5xl mx-auto" x-data="{ showGallery: false, showVideo: false, selectedImage: null, selectedAlt: '', zoomLevel: 1 }">
         <!-- Photos Button -->
         <button @click="showGallery = !showGallery" class="bg-rustic-brown text-F5F1E9 px-4 py-2 rounded mb-4 hover:bg-dark-brown transition-colors" aria-label="Toggle property photo gallery">
-            See Photos of Property
+            Photos
         </button>
         <!-- Video Button -->
         <button @click="showVideo = !showVideo" class="bg-rustic-brown text-F5F1E9 px-4 py-2 rounded mb-4 ml-4 hover:bg-dark-brown transition-colors" aria-label="Toggle property video">
-            Watch Video
+            Video
         </button>
         
         <!-- Photo Gallery -->
@@ -19,16 +19,15 @@
             <img src="/images/east_view.jpg" alt="Cuero Ranch East View" class="object-cover w-full h-64 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer" @click="selectedImage = '/images/east_view.jpg'; selectedAlt = 'Cuero Ranch East View'; $store.gallery.toggleModal(true)" loading="lazy">
         </div>
 
-        <!-- Video Container -->
+        <!-- Video Container (Vimeo) -->
         <div x-show="showVideo" class="transition-opacity duration-300">
             <div class="relative" style="padding-bottom: 56.25%; height: 0; overflow: hidden;">
                 <iframe 
                     class="absolute top-0 left-0 w-full h-full rounded-lg shadow-md" 
-                    src="https://www.youtube.com/embed/rcjznni8Was?autoplay=0" 
-                    title="Cuero Ranch Property Video" 
+                    src="https://player.vimeo.com/video/1063739512?h=3090613a12&badge=0&autopause=0&autoplay=0&player_id=0&app_id=58479" 
                     frameborder="0" 
-                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen>
+                    allow="fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
+                    title="Cuero Ranch Property Video">
                 </iframe>
             </div>
         </div>
